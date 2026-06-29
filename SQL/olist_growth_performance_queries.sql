@@ -16,8 +16,28 @@ WITH order_level AS (
              o.order_id,
              o.order_purchase_timestamp,
              o.order_approved_at
+),
+cust_interpurchase_day AS (
+    SELECT  *,
+            DATEDIFF(DAY, prev_purchase_date, order_purchase_timestamp) AS interpurchase_day
+    FROM    order_level
+),
+cust_recency AS (
+SELECT   customer_unique_id,
+         DATEDIFF(DAY, MAX(order_purchase_timestamp), '2018-10-17') AS recency
+FROM     order_level
+GROUP BY customer_unique_id
 )
-SELECT  *,
-        DATEDIFF(DAY, prev_purchase_date, order_purchase_timestamp) AS interpurchase_day,
-        CASE WHEN first_purchase_date = order_purchase_timestamp THEN 'New Customer' ELSE 'Existing Customer' END AS customer_type
-FROM    order_level;
+SELECT i.*,
+       r.recency,
+       CASE WHEN i.prev_purchase_date IS NULL THEN 'New Customer'
+            WHEN i.interpurchase_day <= 122 THEN 'Retained Customer'
+            ELSE 'Resurrected Customer'
+       END AS customer_type,
+       CASE WHEN r.recency <= 163 THEN 'Active'
+            WHEN r.recency <= 395 THEN 'At-Risk'
+            ELSE 'Churned'
+       END AS customer_stage
+FROM cust_interpurchase_day AS i
+JOIN cust_recency AS r
+     ON i.customer_unique_id = r.customer_unique_id;
