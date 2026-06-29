@@ -10,11 +10,11 @@ The analysis is designed to answer one core question: **is this marketplace grow
 
 ## Key Insights
 
-- Revenue growth is almost entirely driven by new customer acquisition, with new customers contributing 97% of total revenue throughout the observed period, leaving the existing customer base with a marginal and stagnant share.
-- Retention collapses immediately after the first purchase, with more than 99% of customers not returning in the following month. This pattern is consistent across all cohorts and shows no signs of improvement over time. It is worth noting that this marketplace is dominated by durable goods with medium to long usage cycles, meaning a portion of this pattern may reflect natural buying behavior rather than pure retention failure. Customers who purchased furniture, construction tools, or electronics may simply not need to repurchase within the two-year observation window.
-- Nearly half of all existing customer transactions (49.94%) fall within the at-risk and churned zones. While this indicates that retention is not happening proactively, the durable goods context suggests that not all customers in these zones have genuinely disengaged, some may be operating within a natural buying cycle for their product category. What remains clear is that the business currently lacks the infrastructure to distinguish between the two.
-- Existing customers spend less than new ones, with retained and resurrected customers generating an AOV 8–10% lower than new customers. Rather than confirming outright monetization failure, this gap may partly reflect a natural shift in purchase composition. New customers tend to make larger initial purchases such as furniture or electronics, while returning customers are more likely to buy complementary products at lower price points. Regardless of the cause, no upward movement in existing customer AOV has been observed over time.
-- Revenue retention marginally outpaces customer retention, suggesting that returning customers spend more per visit than in the prior period. However, given the dominance of durable goods, this may partly reflect category-switching behavior rather than genuine loyalty-driven expansion. The base remains too small for this signal to generate meaningful business impact at scale.
+- New customers account for 97.04% of total revenue across the observation period, while retained and resurrected customers together contribute less than 3%. The platform does not yet have a sufficiently large existing customer base to serve as a revenue buffer when acquisition slows down.
+- Every cohort experiences a sharp retention drop immediately after the first month, with monthly retention consistently staying below 1% across all cohorts. This pattern most likely reflects the natural buying cycle of durable goods rather than a direct platform failure.
+- CRR and RRR move in tandem around the 3% range with no meaningful divergence, and CRR is persistently higher than RRR. This indicates that returning customers tend to transact at lower values than the platform average, which means the platform cannot yet claim to have an expanding revenue base from its existing customers.
+- There are no signs of behavioral expansion on either the AOV or frequency dimension. New customer AOV is flat in the R$150–R$170 range, while retained and resurrected AOV averages roughly R$14 lower. Growth in existing customer order volume reflects the natural accumulation of a larger base over time, not an increase in purchase frequency per individual.
+- More than half of resurrected customers (54.06%) have already entered the at-risk or churned zone by the end of the observation period. Their return to the platform was most likely driven by natural buying cycles rather than structured retention efforts, leaving the business at risk of losing the same customers a second time without intervention.
 
 ---
 
@@ -33,8 +33,8 @@ Customers are segmented into three groups based on interpurchase behavior:
 | Segment | Definition |
 |---|---|
 | **New Customer** | First-time buyers with no prior transaction history |
-| **Retained** | Returning customers within the normal purchase cycle (≤ 90 days) |
-| **Resurrected** | Customers who return after an extended period of inactivity (> 90 days) |
+| **Retained** | Returning customers within the normal purchase cycle (≤ 122 days) |
+| **Resurrected** | Customers who return after an extended period of inactivity (> 122 days) |
 
 ---
 
